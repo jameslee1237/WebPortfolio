@@ -121,14 +121,10 @@ export const projectDetails = [
              adding a dark/light theme toggle, and implementing more granular breakpoints for
              edge-case device sizes.`,
         slides: [
-            { src: "/Project1_Image1.png", width: 1920, height: 1020 },
-            { src: "/Project1_Image2.png", width: 1920, height: 1020 },
-            { src: "/Project1_Image3.png", width: 1920, height: 1020 },
-            { src: "/Project1_Image4.png", width: 1920, height: 1020 },
-            { src: "/Project1_Image5.png", width: 1920, height: 1020 },
-            { src: "/Project1_Image6.png", width: 1920, height: 1020 },
-            { src: "/Project1_Image7.png", width: 1920, height: 1020 },
-            { src: "/Project1_Image8.png", width: 1920, height: 1020 },
+            { src: "/Port1.png", width: 3556, height: 2022 },
+            { src: "/Port2.png", width: 3590, height: 1716 },
+            { src: "/Port3.png", width: 942, height: 1594 },
+            { src: "/Port4.png", width: 926, height: 2000 },
         ],
         link: ""
     },
