@@ -1,6 +1,7 @@
+"use client";
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 const ProjectCard = ({
     project,
@@ -14,39 +15,41 @@ const ProjectCard = ({
     }
 }) => {
     const router = useRouter();
-    
-    const handleClick = () => {
-        router.push(`/project/${project.id}`)
-    }
 
     return (
-        <div className="flex items-center custom-card lg:max-w-md mx-4" onClick={handleClick}>
-            <div className="relative w-[430px] h-[300px] bg-[#fbfbcb] rounded-md cursor-pointer hover:-translate-y-6 transition-all duration-200 flex justify-center">
-                <div className="absolute top-1/3 left-0 right-0 border-t border-black">
-                    <p className="absolute top-2 left-2 text-[15px] text-black opacity-50">Start date</p>
-                    <p className="absolute left-2 top-5 text-[22px] font-bold text-black">{project.start_date}</p>
-                    <p className="absolute mt-2 top-12 left-2 text-[18px] text-black">{project.brief}</p>
+        <div
+            onClick={() => router.push(`/project/${project.id}`)}
+            className="group card p-6 cursor-pointer hover:-translate-y-1 hover:border-zinc-700 transition-all duration-300 w-full max-w-[400px]"
+        >
+            <div className="flex items-start justify-between mb-4">
+                <h3 className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors duration-200">
+                    {project.title}
+                </h3>
+                <ArrowOutwardIcon
+                    className="text-zinc-600 group-hover:text-indigo-400 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 flex-shrink-0"
+                    style={{ fontSize: 18 }}
+                />
+            </div>
+
+            <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                {project.brief}
+            </p>
+
+            <div className="flex items-center justify-between">
+                <div className="flex flex-wrap gap-2">
+                    {project.skill.map((skill) => (
+                        <span
+                            key={skill}
+                            className="px-2.5 py-1 bg-zinc-800 rounded-md text-emerald-400 text-xs font-medium border border-zinc-700/50"
+                        >
+                            {skill}
+                        </span>
+                    ))}
                 </div>
-                <div className="absolute bottom-4 left-2 max-w-[400px] overflow-y-auto">
-                    <div className="flex">
-                        {project.skill.map((s) => (
-                            <div key={s} className="flex bg-green-100 items-center mr-4 custom-bar px-3 py-1">
-                                <div className="flex">
-                                    <Image src={`/${s}.png`} alt={s} width={30} height={30} style={{objectFit: "contain", paddingRight: "0.5rem"}} /> 
-                                    <p className="text-[18px] justify-center my-auto custom-text">{s}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className="absolute top-3 left-4">
-                    <p className="text-[24px] font-bold text-black">{project.title}</p> 
-                </div>
+                <span className="text-zinc-600 text-xs ml-4 flex-shrink-0">{project.start_date}</span>
             </div>
         </div>
-        
     );
-    
 };
 
 export default ProjectCard;

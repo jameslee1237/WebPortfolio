@@ -9,29 +9,25 @@ import { useState } from 'react';
 import MobileNav from '@/components/MobileNav';
 
 export default function Home() {
-
   const [nav, setNav] = useState(false);
-  const openNav = () => setNav(true);
-  const closeNav = () => setNav(false);
 
   return (
-    <main className="flex min-h-screen flex-col overflow-x-hidden">
-        <MobileNav nav={nav} closeNav={closeNav} />
-        <Nav openNav={openNav} />
-        <section id="Herosection">
-          <Hero />
-        </section>
-        <section id="Aboutsection">
-          <About />
-        </section>
-        <section id="Projectsection">
-          <Project />
-        </section>
-        <section id="Contactsection">
-          <Contact />
-        </section>
-        <Footer />
+    <main className="flex min-h-screen flex-col overflow-x-hidden bg-zinc-950">
+      <MobileNav nav={nav} closeNav={() => setNav(false)} />
+      <Nav openNav={() => setNav(true)} />
+      <section id="Herosection">
+        <Hero />
+      </section>
+      <section id="Aboutsection">
+        <About />
+      </section>
+      <section id="Projectsection">
+        <Project />
+      </section>
+      <section id="Contactsection">
+        <Contact />
+      </section>
+      <Footer />
     </main>
-    
   );
 }

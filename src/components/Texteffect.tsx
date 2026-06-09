@@ -5,18 +5,17 @@ const Texteffect = () => {
   return (
     <TypeAnimation
       sequence={[
-        'Programmer',
-        1500, 
-        'Full stack Developer',
-        1500,
-        'Coder',
-        1500,
+        'Frontend Engineer',
+        1800,
+        'AI Automation Specialist',
+        1800,
+        'Full Stack Developer',
+        1800,
         'Software Engineer',
-         1500
+        1800,
       ]}
-  
       speed={50}
-      className="text-[2rem] md:text-[3rem] text-[#55e6a5] font-bold uppercase"
+      className="text-[1.5rem] md:text-[2rem] text-indigo-400 font-semibold tracking-tight"
       repeat={Infinity}
     />
   );

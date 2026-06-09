@@ -1,69 +1,61 @@
 "use client";
 import React from 'react';
 import { experienceDetails } from '@/constants';
-import RespCard from '@/components/RespCard';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import BusinessIcon from '@mui/icons-material/Business';
 
-export default function ExperienceDetailPage({ 
-  params 
+export default function ExperienceDetailPage({
+  params,
 }: {
-  params: {
-    id: string;
-  };
+  params: { id: string };
 }) {
-  const experienceDetail = experienceDetails.find((t) => t.id === params.id);
+  const detail = experienceDetails.find((t) => t.id === params.id);
 
-  if (!experienceDetail) {
-    return <div className="text-white text-[40px] text-center font-bold">Experience not found</div>;
+  if (!detail) {
+    return (
+      <div className="text-zinc-400 text-2xl text-center font-semibold mt-20">
+        Experience not found
+      </div>
+    );
   }
-  
-  const { title, description, Date, Hire, src } = experienceDetail;
-  const combinedList: {description: string, src: string}[] = [];
 
-  if (Array.isArray(description) && Array.isArray(src)) {
-    const maxLength = Math.max(description.length, src.length);
-
-    for (let i = 0; i < maxLength; i++) {
-        const descItem = description[i] ?? ''; 
-        const srcItem = src[i] ?? ''; 
-        combinedList.push({description: descItem, src: srcItem});
-    }
-  } 
-  else {
-    const descItem = Array.isArray(description) ? description[0] ?? '' : description ?? '';
-    const srcItem = Array.isArray(src) ? src[0] ?? '' : src ?? '';
-    combinedList.push({description: descItem, src: srcItem});
-  }
+  const { title, description, Date, Hire } = detail;
 
   return (
-    <div className="flex flex-col text-center">
-      <div className="text-white text-4xl font-bold mt-16 mb-8">
-        <h1>{title}</h1>
-      </div>
-      <div className="flex justify-center">
-        <div className="w-full">
-          <div className="text-white text-[20px] flex flex-col justify-start items-center">
-            <h1 className="text-[30px] font-bold mb-8">Responsibilities</h1>
-            <div className="flex flex-wrap justify-center gap-x-16">
-              {combinedList.map((item, index) => (
-                <RespCard key={index} Resp={item} />
-              ))}
-            </div>
-          </div>
+    <div className="w-[88%] max-w-3xl mx-auto py-16">
+      <div className="mb-10">
+        <p className="section-label mb-3">Experience Detail</p>
+        <h1 className="text-white text-[2rem] md:text-[2.6rem] font-bold leading-tight mb-2">
+          {title}
+        </h1>
+        <div className="flex flex-wrap items-center gap-4 mt-4">
+          <span className="flex items-center gap-2 text-indigo-400 text-sm font-medium">
+            <BusinessIcon style={{ fontSize: 16 }} />
+            {Hire}
+          </span>
+          <span className="flex items-center gap-2 text-zinc-500 text-sm">
+            <CalendarTodayIcon style={{ fontSize: 14 }} />
+            {Date}
+          </span>
         </div>
       </div>
-      <div className="flex flex-col justify-center mt-4 mb-16">
-        <div className="mb-8">
-          <div className="text-white text-[20px] flex flex-col justify-start items-center">
-            <h1 className="text-[30px] font-bold">Date</h1>
-            <p>{Date}</p>
-          </div>
-        </div>
-        <div>
-          <div className="text-white text-[20px] flex flex-col justify-start items-center">
-            <h1 className="text-[30px] font-bold">Hired By</h1>
-            <p>{Hire}</p>
-          </div>
-        </div>
+
+      <div className="card p-8">
+        <h2 className="text-zinc-400 text-xs font-mono uppercase tracking-widest mb-6">
+          Responsibilities
+        </h2>
+        <ul className="flex flex-col gap-4">
+          {description.map((item, index) => (
+            <li key={index} className="flex items-start gap-4">
+              <CheckCircleOutlineIcon
+                className="text-emerald-400 flex-shrink-0 mt-0.5"
+                style={{ fontSize: 18 }}
+              />
+              <p className="text-zinc-300 leading-relaxed text-[0.95rem]">{item}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

@@ -4,101 +4,78 @@
 
 html, body {
   overflow-x: hidden;
+  background-color: #09090b;
 }
 
 @layer components {
-    .nav-link {
-        @apply relative font-semibold text-white cursor-pointer text-[17px] w-fit md:block after:block
-        after:content-[''] after:absolute after:h-[3px] after:bg-yellow-400 after:w-full after:scale-x-0
-        after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hidden
-    }
+  .nav-link {
+    @apply relative font-medium text-zinc-400 cursor-pointer text-[15px] w-fit md:block
+    after:block after:content-[''] after:absolute after:h-[2px] after:bg-indigo-400
+    after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300
+    after:origin-center hidden hover:text-white transition-colors duration-200;
+  }
 
-    .nav-link-mobile {
-        @apply relative mb-[2rem] font-semibold text-white cursor-pointer text-[27px] w-fit md:block after:block
-        after:content-[''] after:absolute after:h-[3px] after:bg-yellow-400 after:w-full after:scale-x-0
-        after:hover:scale-x-100 after:transition after:duration-300 after:origin-center
-    }
+  .nav-link-mobile {
+    @apply relative mb-[2.5rem] font-semibold text-white cursor-pointer text-[28px] w-fit
+    after:block after:content-[''] after:absolute after:h-[2px] after:bg-indigo-400
+    after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300
+    after:origin-center;
+  }
 
-    .Nav {
-        position: sticky;
-        z-index: 1000;
-    }
-    
-    .custom-max-width {
-      max-width: 1400px;
-    }
+  .Nav {
+    position: sticky;
+    z-index: 1000;
+  }
 
-    .back-to-home-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        width: auto;
-    }
-      
-    .back-to-home-button:hover {
-        background-color: #0056b3;
-    }
+  .section-label {
+    @apply text-emerald-400 text-xs font-mono uppercase tracking-[0.2em] mb-3;
+  }
 
-    .flip-card-inner {
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-    }
-    
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      backface-visibility: hidden;
-    }
-    
-    .flip-card-back {
-      transform: rotateY(180deg);
-    }
+  .section-heading {
+    @apply text-white text-[2rem] md:text-[2.8rem] font-bold leading-tight;
+  }
 
-    .custom-text {
-      font-size: 20px;
-      font-style: bold;
-    }
-}
+  .skill-badge {
+    @apply px-3 py-1.5 bg-zinc-800 border border-zinc-700 rounded-full text-sm text-zinc-300
+    hover:border-indigo-500/50 hover:text-white transition-all duration-200;
+  }
 
-@media (max-width: 430px) {
-  .custom-text {
-    font-size: 4vw;
-    font-style: bold;
+  .card {
+    @apply bg-zinc-900 border border-zinc-800 rounded-2xl;
+  }
+
+  .back-to-home-button {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 10px 20px;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  }
+
+  .back-to-home-button:hover {
+    background-color: #4338ca;
+  }
+
+  .flip-card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
   }
 }
-
-@media (max-width: 470px) {
-  .custom-card {
-    width: 90vw;
-  }
-
-  .custom-text {
-    font-size: 3vw;
-  }
-}
-
-@media (max-width: 320px) {
-  .custom-bar {
-    margin-right: 0.5rem;
-  }
-}
-
-@media (min-width: 530px) and (max-width: 767px) {
-  .custom-resp-text {
-    font-size: 3vw;
-  }
-}
-
-@media (min-width: 350px) and (max-width: 530px) {
-  .custom-resp-text {
-    font-size: 3.5vw;
-  }
-} 
-

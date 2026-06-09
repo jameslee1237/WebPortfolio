@@ -2,26 +2,25 @@
 import BackToHomeButton from "@/components/BacktoHome";
 import "../globals.css";
 
-export default function ExperienceDetailLayout ({
+export default function DetailLayout({
     children,
-} : {
-    children: React.ReactNode
+}: {
+    children: React.ReactNode;
 }) {
-
     return (
         <>
-            <div className="w-[100%] Nav top-0 h-[12vh] bg-[#141c27] shadow-md">
-                <div className="flex items-center justify-between w-[80%] mx-auto h-[100%]">
-                    <h1 className="flex-[0.6] cursor-pointer text-[25px] text-white font-bold">
-                        PORT
-                        <span className="text-yellow-300">FOLIO</span>
-                    </h1>
+            <nav className="w-full sticky top-0 z-[1000] h-[70px] bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50">
+                <div className="flex items-center w-[88%] max-w-6xl mx-auto h-full">
+                    <a href="/" className="flex items-center gap-1">
+                        <span className="text-[20px] font-bold text-white">jae</span>
+                        <span className="text-[20px] font-bold text-indigo-400">.dev</span>
+                    </a>
                 </div>
-            </div>
-            <div style={{ minHeight: '88vh' }} className=" bg-[#63abd4] flex flex-col items-center">
+            </nav>
+            <div className="min-h-[calc(100vh-70px)] bg-zinc-950 flex flex-col items-center">
                 {children}
             </div>
             <BackToHomeButton />
         </>
-    )
+    );
 }

@@ -1,132 +1,176 @@
 export const experiences = [
     {
         id: "1",
-        title: "Database Administrator",
-        summary: "MySQL",
-        date: "Jul 2020 - Feb 2022"
+        title: "Frontend Engineer & AI Automation Specialist",
+        summary: "WemeetMobility",
+        date: "Oct 2024 – Present"
     },
     {
         id: "2",
         title: "Software Engineer",
-        summary: "Python",
-        date: "Apr 2022 - Jul 2022"
+        summary: "NSKorea",
+        date: "Apr 2022 – Jul 2022"
+    },
+    {
+        id: "3",
+        title: "Server Administrator",
+        summary: "Republic of Korea Army",
+        date: "Aug 2020 – Feb 2022"
     },
 ]
 
 export const TAB_DATA = [
     {
-        title: "Skill",
+        title: "Skills",
         id: "skills",
-        content: ["Next.js", "Typescript", "CSS", "MySQL", "Tensorflow", "Python", "Docker", "MongoDB"]
+        content: [
+            "TypeScript", "JavaScript", "React 19", "Next.js",
+            "Vanilla Extract", "Tailwind CSS", "Zustand", "TanStack Query",
+            "Claude Code", "MCP / AI Agents", "Python", "Docker",
+            "AWS IoT Core", "Git", "REST APIs", "react-hook-form"
+        ]
     },
     {
         title: "Education",
         id: "education",
-        content: ["University College London - London (BSc Computer Science)", "HELP College - Kuala Lumpur (A-Levels)"]
+        content: [
+            "University College London — BSc Computer Science (2:1)",
+            "2018–2023 · London, UK · GPA 3.6 / 4.0",
+            "IELTS Academic 8.0 / 9.0"
+        ]
     },
-]
-
-export const skill_level = [
-    '45%',
-    '55%',
-    '65%',
-    '50%',
-    '35%',
-    "80%",
-    '60%',
-    '40%'
 ]
 
 export const projects = [
     {
         id: "1",
-        title: "Portfolio",
-        start_date: "March 1, 2024",
-        brief: "Mobile responsive web portfolio using Next.js",
-        skill: ["Next.js", "Typescript", "CSS"]
+        title: "WebPortfolio",
+        start_date: "March 2024",
+        brief: "Mobile-responsive personal portfolio built with Next.js 14 and Tailwind CSS",
+        skill: ["Next.js", "TypeScript", "Tailwind CSS"]
     },
     {
         id: "2",
         title: "DreamCanvas",
-        start_date: "March 14, 2024",
-        brief: "Instagram-inspired social media platform using Next.js, Prisma and MongoDB",
+        start_date: "March 2024",
+        brief: "Instagram-inspired social platform built with Next.js, Prisma & MongoDB",
         skill: ["Next.js", "MongoDB", "Prisma"]
-    }
+    },
+    {
+        id: "3",
+        title: "UCL Library Mapper",
+        start_date: "2023",
+        brief: "Hackathon app mapping real-time library seat vacancies via UCL API",
+        skill: ["React", "Node.js", "UCL API"]
+    },
+    {
+        id: "4",
+        title: "AWS IoT Smart Layout",
+        start_date: "2022",
+        brief: "IoT retail foot-traffic analysis system using AWS IoT Core for dynamic layout optimisation",
+        skill: ["AWS IoT Core", "Python", "IoT"]
+    },
 ]
 
 export const experienceDetails = [
     {
         id: "1",
-        title: "Database Administrator",
-        description: [`Responsible for inspection and maintenance of different servers and designated intranet web pages on a
-                        daily basis`, "Manage control of access to the network and server via allocation of user access rights",
-                       "Provide assistance in management of IP address for specific devices in the network",
-                       "Utilize various software and hardware for configuration of new devices and maintenance of existing computers and devices.",
-                       "Train other members in security policies and procedures",
-                     ],
-        Date: "August 2020 to February 2022",
-        Hire: "Republic of Korea Army",
-        src:  ["/ExpIcon1.png", "/ExpIcon2.png", "/ExpIcon3.png", "/ExpIcon4.png", "/ExpIcon5.png"]
+        title: "Frontend Engineer & AI Automation Specialist",
+        description: [
+            "Designed and shipped a 5-stage autonomous coding pipeline — Jira ingestion, Figma-to-spec conversion, TDD code generation, automated PR creation, and AI-powered code review.",
+            "Drove 78.1% of all AI automation commits across 8 complete iteration cycles; matured a custom TDD engine through 149 prompt iterations to production-ready stability.",
+            "Served as primary frontend architect delivering 63.6% of all repository commits (3,322 of ~5,225 total) with 10,500+ file touches across TMS routing, dispatch, and order management modules.",
+            "Built type-safe API communication layers, custom React hooks, validation schemas, and state management utilities powering the core TMS data flow.",
+            "Led 4 dedicated refactoring sprints reducing cross-cutting duplication by an estimated 30–40%.",
+        ],
+        Date: "October 2024 to Present",
+        Hire: "WemeetMobility",
     },
     {
         id: "2",
         title: "Software Engineer",
-        description: [`Responsible for development of software allowing management and access to certain data
-                       company holds`,
-                      `Trained staffs in overall usage of software including installation, error detection and 
-                       production of instructional manuals`, 
-                      `Interact with staffs during development to update requirements, give feedback on testing 
-                       procedures and ensure final product met operational targets`
-                     ],
+        description: [
+            "Architected an internal data access management system in Python to control and audit employee access to company data stores.",
+            "Collaborated directly with non-technical stakeholders to iteratively refine software requirements.",
+            "Authored comprehensive user manuals and delivered hands-on training sessions.",
+        ],
         Date: "April 2022 to July 2022",
         Hire: "NSKorea",
-        src: ["/ExpIcon6.png", "/ExpIcon7.png", "/ExpIcon8.png"]
+    },
+    {
+        id: "3",
+        title: "Server Administrator",
+        description: [
+            "Monitored and maintained network server infrastructure on a daily basis.",
+            "Executed scheduled data backups and enforced user access control policies.",
+            "Preserved system integrity and prevented data loss across military server infrastructure.",
+        ],
+        Date: "August 2020 to February 2022",
+        Hire: "Republic of Korea Army (Mandatory Service)",
     },
 ]
 
 export const projectDetails = [
     {
         id: "1",
-        title: 'Mobile Responsive Web Portfolio',
-        description: `The aim of this project is to develop a mobile-responsive web portfolio in a visually appealing and user-friendly manner. 
-                      By leveraging Tailwind CSS's responsive utilities, I aim to create a portfolio that dynamically adjusts its 
-                      layout and design based on the screen size, providing a seamless and consistent experience across smartphones, tablets, and desktops.`,
-        FI: `While Tailwind css provides a largely seamless experience across different screen sizes using fixed breakpoints, since these breakpoints
-             have fixed values, some content may not be displayed optimally on certain devices. To address this, implementing more dynamic and 
-             device-specific breakpoints would enhance the portfolio's adaptabiltiy and user experience. By incorporating device detection or media queris, 
-             the portfolio could adjust its layout more precisely.`,
+        title: "WebPortfolio",
+        description: `A mobile-responsive personal portfolio built with Next.js 14 and Tailwind CSS.
+                      Leverages responsive utilities to provide a seamless experience across smartphones, tablets, and desktops,
+                      with smooth animations powered by Framer Motion.`,
+        FI: `Future improvements include integrating a CMS for dynamic content management,
+             adding a dark/light theme toggle, and implementing more granular breakpoints for
+             edge-case device sizes.`,
         slides: [
-                    { src: "/Project1_Image1.png", width: 1920, height: 1020},
-                    { src: "/Project1_Image2.png", width: 1920, height: 1020},
-                    { src: "/Project1_Image3.png", width: 1920, height: 1020},
-                    { src: "/Project1_Image4.png", width: 1920, height: 1020},
-                    { src: "/Project1_Image5.png", width: 1920, height: 1020},
-                    { src: "/Project1_Image6.png", width: 1920, height: 1020},
-                    { src: "/Project1_Image7.png", width: 1920, height: 1020},
-                    { src: "/Project1_Image8.png", width: 1920, height: 1020},
-                ],
+            { src: "/Project1_Image1.png", width: 1920, height: 1020 },
+            { src: "/Project1_Image2.png", width: 1920, height: 1020 },
+            { src: "/Project1_Image3.png", width: 1920, height: 1020 },
+            { src: "/Project1_Image4.png", width: 1920, height: 1020 },
+            { src: "/Project1_Image5.png", width: 1920, height: 1020 },
+            { src: "/Project1_Image6.png", width: 1920, height: 1020 },
+            { src: "/Project1_Image7.png", width: 1920, height: 1020 },
+            { src: "/Project1_Image8.png", width: 1920, height: 1020 },
+        ],
         link: ""
     },
     {
         id: "2",
-        title: "DreamCanvas", 
-        description: `DreamCanvas is a social media platform inspired by Instagram, designed to provide users with a platform to share their
-                      creative works and connect with other users. The platform is built using Next.js, Prisma, and MongoDB, and features a
-                      user-friendly interface that allows users to easily upload and share their content, follow other users, and interact with
-                      posts through likes and comments.`,
-        FI: `While DreamCanvas provides a user-friendly platform for sharing and connecting with other users, the platform could be further
-             enhanced by implementing security measures such as utilziing tokens for HTTP requests and encrypting user data to protect user privacy.
-             Additionally, implementing a more robust notification system to alert users of new likes, comments, and followers would enhance the user experience`,
+        title: "DreamCanvas",
+        description: `DreamCanvas is a social media platform inspired by Instagram, built with Next.js, Prisma, and MongoDB.
+                      Users can upload and share creative works, follow other users, and interact through likes and comments —
+                      all within a clean, user-friendly interface.`,
+        FI: `Future improvements include JWT-based authentication, encrypted user data storage for privacy compliance,
+             and a real-time notification system for likes, comments, and new followers.`,
         slides: [
-            { src: "/Project2_Image1.png", width: 1920, height: 1020},
-            { src: "/Project2_Image2.png", width: 1920, height: 1020},
-            { src: "/Project2_Image3.png", width: 1920, height: 1020},
-            { src: "/Project2_Image4.png", width: 1920, height: 1020},
-            { src: "/Project2_Image5.png", width: 1920, height: 1020},
-            { src: "/Project2_Image6.png", width: 1920, height: 1020},
-            { src: "/Project2_Image7.png", width: 1920, height: 1020},
+            { src: "/Project2_Image1.png", width: 1920, height: 1020 },
+            { src: "/Project2_Image2.png", width: 1920, height: 1020 },
+            { src: "/Project2_Image3.png", width: 1920, height: 1020 },
+            { src: "/Project2_Image4.png", width: 1920, height: 1020 },
+            { src: "/Project2_Image5.png", width: 1920, height: 1020 },
+            { src: "/Project2_Image6.png", width: 1920, height: 1020 },
+            { src: "/Project2_Image7.png", width: 1920, height: 1020 },
         ],
         link: "https://dream-canvas-two.vercel.app"
-
+    },
+    {
+        id: "3",
+        title: "UCL Library Mapper",
+        description: `Built during a UCL API Hackathon — a full-stack student application that maps
+                      real-time library seat vacancies and processes workspace bookings via the UCL API.
+                      Designed to help students find available study spaces quickly across campus.`,
+        FI: `Future improvements include persistent booking history, push notifications for seat
+             availability, and integration with the UCL academic calendar for smart scheduling.`,
+        slides: [],
+        link: ""
+    },
+    {
+        id: "4",
+        title: "AWS IoT Smart Layout",
+        description: `Designed and deployed an IoT tracking network using AWS IoT Core to analyse retail
+                      foot traffic density in real time. The system generates dynamic layout recommendations
+                      to minimise customer wait times and optimise store flow.`,
+        FI: `Future improvements include a real-time management dashboard, ML-based predictive layout
+             modelling, and integration with inventory management systems.`,
+        slides: [],
+        link: ""
     },
 ]

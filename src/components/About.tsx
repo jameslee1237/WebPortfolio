@@ -1,118 +1,160 @@
 "use client";
 import React, { useState } from "react";
-import TabButton from "./TabButton";
 import { useRouter } from "next/navigation";
-import { experiences, TAB_DATA, skill_level } from "@/constants";
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+import { experiences, TAB_DATA } from "@/constants";
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import TerminalIcon from '@mui/icons-material/Terminal';
+import WorkIcon from '@mui/icons-material/Work';
+import SchoolIcon from '@mui/icons-material/School';
 
 const About = () => {
-    const [tab, setTab] = useState<string>("skills");
-    const level = skill_level;
+    const [tab, setTab] = useState<"skills" | "education">("skills");
     const router = useRouter();
 
-    const handleClick = (Expid: string) => {
-        router.push(`/experience/${Expid}`)
-    }
+    const handleClick = (expId: string) => {
+        router.push(`/experience/${expId}`);
+    };
 
-    const handleTabChange = (id: string) => {
-        setTab(id);
-    }
-    
+    const skillsData = TAB_DATA.find((t) => t.id === "skills");
+    const educationData = TAB_DATA.find((t) => t.id === "education");
+
     return (
-        <div className="bg-[#2c7092] pb-[8rem] pt-[4rem] md:pt-[8rem]">
-            <div className="w-[85%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-[3rem] items-start">
-                <div className="mb-[3rem]">
-                    <h1 className="text-[20px] font-bold uppercase text-[#55e6a5] md-[1rem]">
-                        ABOUT ME
-                    </h1>
-                    <h2 className="text-[25px] md:text-[35px] lg:text-[45px] md:leading-[3rem] leading-[2rem] capitalize mb-[3rem] font-bold text-white">
-                        Navigating <span className="text-yellow-400">Diversity</span>
+        <div id="Aboutsection" className="bg-zinc-900 py-20 md:py-28">
+            <div className="w-[88%] max-w-6xl mx-auto">
+                {/* Section header */}
+                <div className="mb-14">
+                    <p className="section-label">Who I am</p>
+                    <h2 className="section-heading">
+                        About{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">
+                            Me
+                        </span>
                     </h2>
-                    <p className="md:text-lg text-slate-300 mb-4">
-                        My life has been a dynamic journey, encompassing unique experiences across various countries. Being exposed to different cultures
-                        has led to a broadened perspective and a deep appreciation for diversity. Each transition has honed my ability to adapt and thrive amidst change,
-                        fostering resilience and adaptability within me. Embracing diversity has not only enriched my worldview and broadened my perspectives 
-                        but has also empowered me to find strength in unfamiliar situations. Instead of viewing diversity as a challenge, 
-                        I perceive it as a wellspring of inspiration, propelling both personal and intellectual growth. 
-                    </p>
                 </div>
-                <div className="xl:w-[700px] lg:w-[400px] mx-auto md:mx-0 mt-[2rem] lg:mt-0 lg:h-[500px] mb-[8rem] md:mb-0 relative">
-                    <h1 className="text-[30px] md:text-[40px] mb-4 text-white font-bold text-center">
-                        Experience
-                    </h1>
-                    <div className="flex flex-col items-center overflow-hidden"> 
-                        <VerticalTimeline>
+
+                {/* Bio + Experience */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+                    {/* Bio card */}
+                    <div className="card p-8 flex flex-col justify-between">
+                        <div>
+                            <p className="section-label mb-4">Background</p>
+                            <p className="text-zinc-300 leading-relaxed text-[1.05rem]">
+                                I&apos;m a Frontend Engineer and AI Automation Specialist with a BSc in
+                                Computer Science from University College London. I specialize in building
+                                enterprise-grade Transportation Management Systems, scalable component
+                                libraries, and autonomous AI coding pipelines.
+                            </p>
+                            <p className="text-zinc-400 leading-relaxed text-[1rem] mt-4">
+                                At WemeetMobility I&apos;ve grown from engineer to technical owner — driving
+                                the architectural direction of the frontend, leading refactoring sprints,
+                                and designing end-to-end AI automation tooling from the ground up.
+                            </p>
+                        </div>
+                        <div className="mt-8 grid grid-cols-2 gap-4">
+                            {[
+                                { value: "Seoul, Korea", label: "Location" },
+                                { value: "UCL 2:1", label: "Education" },
+                                { value: "IELTS 8.0", label: "English" },
+                                { value: "+82 10-6816-3046", label: "Phone" },
+                            ].map((item) => (
+                                <div key={item.label} className="bg-zinc-800/60 rounded-xl p-4 border border-zinc-700/50">
+                                    <p className="text-white font-semibold text-sm">{item.value}</p>
+                                    <p className="text-zinc-500 text-xs mt-0.5">{item.label}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Experience timeline */}
+                    <div className="card p-8">
+                        <p className="section-label mb-4">Career</p>
+                        <h3 className="text-white text-xl font-bold mb-6">Experience</h3>
+                        <VerticalTimeline layout="1-column-left" className="!p-0">
                             {experiences.map((experience) => (
                                 <VerticalTimelineElement
-                                 key={experience.id}
-                                 className="vertical-timeline-element--work"
-                                 contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff'}}
-                                 dateClassName="ml-4 mr-4"
-                                 contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                                 date={experience.date}
-                                 iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                                 iconClassName="hover:scale-110"
-                                 icon={<TerminalIcon />}
-                                 iconOnClick={() => handleClick(experience.id)}
-                                 visible={true}
+                                    key={experience.id}
+                                    className="vertical-timeline-element--work !m-0 !mb-4 !pb-0"
+                                    contentStyle={{
+                                        background: '#18181b',
+                                        border: '1px solid #27272a',
+                                        borderRadius: '12px',
+                                        boxShadow: 'none',
+                                        color: '#fff',
+                                        padding: '16px 20px',
+                                    }}
+                                    contentArrowStyle={{ borderRight: '7px solid #27272a' }}
+                                    date={experience.date}
+                                    dateClassName="text-zinc-500 text-xs !pl-4 !pr-2"
+                                    iconStyle={{ background: '#4f46e5', color: '#fff', boxShadow: '0 0 0 3px #312e81' }}
+                                    iconClassName="hover:scale-110 cursor-pointer !w-8 !h-8 !ml-0 !shadow-none"
+                                    icon={<WorkIcon style={{ fontSize: 16 }} />}
+                                    iconOnClick={() => handleClick(experience.id)}
+                                    visible={true}
                                 >
-                                    <h3 className="vertical-timeline-element-title">{experience.title}</h3>
-                                    <p>
-                                        {experience.summary}
-                                    </p>
+                                    <h3 className="text-white font-semibold text-sm leading-snug">
+                                        {experience.title}
+                                    </h3>
+                                    <p className="text-indigo-400 text-xs mt-1">{experience.summary}</p>
                                 </VerticalTimelineElement>
                             ))}
                         </VerticalTimeline>
+                        <p className="text-zinc-600 text-xs mt-4">Click an entry to see full details →</p>
                     </div>
                 </div>
-            </div>
-            <div className="mx-auto" style={{width: "80vw"}}>
-                <div className="text-[20px]">
-                    {TAB_DATA.map((tabItem) => (
-                        <TabButton 
-                         key={tabItem.id}
-                         selectTab={() => handleTabChange(tabItem.id)}
-                         active={tab === tabItem.id}
-                        >
-                            {tabItem.title}
-                        </TabButton>
-                    ))}       
-                </div>
-                <div className="text-white mt-4">
-                    {TAB_DATA.find((t) => t.id === tab)?.content.map((item, index) => (
-                        tab === "skills" ? (
-                            index % 2 === 0 ? (
-                                <div key={item} className="flex flex-row mb-[1rem]">
-                                    <div className="relative mr-4" style={{ width: "600px"}}>
-                                        <h1 className="p-3 uppercase w-full bg-gray-800 rounded-sm text-white custom-text font-bold overflow-hidden">
+
+                {/* Skills + Education tabs */}
+                <div className="card p-8">
+                    <div className="flex gap-6 border-b border-zinc-800 mb-8">
+                        {TAB_DATA.map((tabItem) => (
+                            <button
+                                key={tabItem.id}
+                                onClick={() => setTab(tabItem.id as "skills" | "education")}
+                                className={`pb-3 text-sm font-semibold transition-colors border-b-2 -mb-[1px] ${
+                                    tab === tabItem.id
+                                        ? "text-white border-indigo-400"
+                                        : "text-zinc-500 border-transparent hover:text-zinc-300"
+                                }`}
+                            >
+                                {tabItem.title}
+                            </button>
+                        ))}
+                    </div>
+
+                    {tab === "skills" && (
+                        <div className="flex flex-wrap gap-2">
+                            {skillsData?.content.map((skill) => (
+                                <span key={skill} className="skill-badge">
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+
+                    {tab === "education" && (
+                        <div className="flex flex-col gap-4">
+                            <div className="flex items-start gap-4">
+                                <div className="w-10 h-10 bg-indigo-600/20 border border-indigo-500/30 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <SchoolIcon className="text-indigo-400" style={{ fontSize: 20 }} />
+                                </div>
+                                <div>
+                                    {educationData?.content.map((item) => (
+                                        <p key={item} className={`${
+                                            item.startsWith("University") ? "text-white font-semibold text-base" : "text-zinc-400 text-sm mt-1"
+                                        }`}>
                                             {item}
-                                        </h1>
-                                        <span className="absolute bottom-0 left-0 bg-green-500" style={{ width: level[index], height:"4px"}}></span>
-                                    </div>
-                                    {TAB_DATA.find((t) => t.id === tab)?.content[index + 1] && (
-                                        <div className="relative mr-4" style={{ width: "600px"}}>
-                                            <h1 className="p-3 uppercase w-full bg-gray-800 rounded-sm text-white custom-text font-bold overflow-hidden">
-                                                {TAB_DATA.find((t) => t.id === tab)?.content[index + 1]}
-                                            </h1>
-                                            <span className="absolute bottom-0 left-0 bg-green-500" style={{ width: level[index + 1], height:"4px"}}></span>
-                                        </div>
-                                    )}
+                                        </p>
+                                    ))}
+                                    <p className="text-zinc-500 text-sm mt-2">
+                                        Machine Learning · AI & Neural Computing · Software Engineering · IoT & Embedded Systems
+                                    </p>
                                 </div>
-                            ) : null
-                        ) : (
-                            <div key={item} className="flex flex-row mb-[1rem] text-[20px] font-bold">
-                                <div className="relative mr-4">
-                                    <p className="flex">{item}</p>
-                                </div>
-                            </div>                          
-                        )
-                    ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
-    )
+    );
 };
 
 export default About;

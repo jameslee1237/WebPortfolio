@@ -1,35 +1,46 @@
-import React from "react"
+"use client";
+import React from "react";
 import MenuIcon from '@mui/icons-material/Menu';
 
 interface Props {
     openNav: () => void;
 }
 
-const Nav = ({openNav}:Props) => {
+const navLinks = [
+    { label: "Home", href: "#" },
+    { label: "About", href: "#Aboutsection" },
+    { label: "Projects", href: "#Projectsection" },
+    { label: "Contact", href: "#Contactsection" },
+];
+
+const Nav = ({ openNav }: Props) => {
     return (
-        <div className="w-[100%] Nav top-0 h-[12vh] bg-[#141c27] shadow-md">
-            <div className="flex items-center justify-between w-[80%] mx-auto h-[100%]">
-                <h1 className="flex-[0.6] cursor-pointer text-[25px] text-white font-bold">
-                    PORT
-                    <span className="text-yellow-300">FOLIO</span>
-                </h1>
-                <div className="nav-link">
-                    <a href="#">Home</a>
+        <nav className="w-full Nav top-0 h-[70px] bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50">
+            <div className="flex items-center justify-between w-[88%] max-w-6xl mx-auto h-full">
+                <a href="#" className="flex items-center gap-1">
+                    <span className="text-[22px] font-bold text-white tracking-tight">
+                        jae
+                    </span>
+                    <span className="text-[22px] font-bold text-indigo-400 tracking-tight">
+                        .dev
+                    </span>
+                </a>
+                <div className="hidden md:flex items-center gap-8">
+                    {navLinks.map((link) => (
+                        <div key={link.label} className="nav-link">
+                            <a href={link.href}>{link.label}</a>
+                        </div>
+                    ))}
                 </div>
-                <div className="nav-link">
-                    <a href="#Aboutsection">About</a>
-                </div>
-                <div className="nav-link">
-                    <a href="#Projectsection">Projects</a>
-                </div>
-                <div className="nav-link">
-                    <a href="#Contactsection">Contact</a>
-                </div>
-                <div onClick={openNav} className="md:hidden w-[2rem] h-[2rem] cursor-pointer text-yellow-300">
+                <button
+                    onClick={openNav}
+                    className="md:hidden text-zinc-400 hover:text-white transition-colors"
+                    aria-label="Open navigation"
+                >
                     <MenuIcon />
-                </div>
+                </button>
             </div>
-        </div>
+        </nav>
     );
 };
 
