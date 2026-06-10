@@ -1,21 +1,35 @@
 "use client";
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Texteffect from "./Texteffect";
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Image from "next/image";
 
-const handleDownloadCV = () => {
+const downloadCV = (lang: 'EN' | 'KR') => {
     const link = document.createElement('a');
-    link.href = "/CV.pdf";
-    link.download = 'CV.pdf';
+    link.href = lang === 'EN' ? '/CV_EN.pdf' : '/CV_KR.pdf';
+    link.download = `Jae_Yong_Lee_CV_${lang}.pdf`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 };
 
 const Hero = () => {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+                setDropdownOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
     return (
         <div className="bg-zinc-950 min-h-[calc(100vh-70px)] flex items-center relative overflow-hidden">
             {/* Ambient glow */}
@@ -46,13 +60,40 @@ const Hero = () => {
                     </p>
 
                     <div className="mt-8 flex flex-wrap items-center gap-4">
-                        <button
-                            onClick={handleDownloadCV}
-                            className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg shadow-indigo-600/20"
-                        >
-                            <span>Download CV</span>
-                            <DownloadForOfflineIcon fontSize="small" />
-                        </button>
+                        <div className="relative" ref={dropdownRef}>
+                            <div className="flex rounded-lg overflow-hidden shadow-lg shadow-indigo-600/20">
+                                <button
+                                    onClick={() => downloadCV('EN')}
+                                    className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all duration-200"
+                                >
+                                    <span>Download CV</span>
+                                    <DownloadForOfflineIcon fontSize="small" />
+                                </button>
+                                <button
+                                    onClick={() => setDropdownOpen(o => !o)}
+                                    className="px-2 py-3 bg-indigo-700 hover:bg-indigo-600 text-white border-l border-indigo-500 transition-all duration-200"
+                                    aria-label="Choose language"
+                                >
+                                    <KeyboardArrowDownIcon fontSize="small" />
+                                </button>
+                            </div>
+                            {dropdownOpen && (
+                                <div className="absolute left-0 mt-1 w-full min-w-[160px] bg-zinc-900 border border-zinc-700 rounded-lg shadow-xl z-50 overflow-hidden">
+                                    <button
+                                        onClick={() => { downloadCV('EN'); setDropdownOpen(false); }}
+                                        className="w-full text-left px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 transition-colors"
+                                    >
+                                        English
+                                    </button>
+                                    <button
+                                        onClick={() => { downloadCV('KR'); setDropdownOpen(false); }}
+                                        className="w-full text-left px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 transition-colors"
+                                    >
+                                        Korean
+                                    </button>
+                                </div>
+                            )}
+                        </div>
 
                         <div className="flex items-center gap-3">
                             <a
