@@ -25,6 +25,7 @@ export const TAB_DATA = [
         id: "skills",
         content: [
             "TypeScript", "JavaScript", "React 19", "Next.js",
+            "Kotlin", "Spring Boot", "PostgreSQL",
             "Vanilla Extract", "Tailwind CSS", "Zustand", "TanStack Query",
             "Claude Code", "MCP / AI Agents", "Python", "Docker",
             "AWS IoT Core", "Git", "REST APIs", "react-hook-form"
@@ -69,6 +70,13 @@ export const projects = [
         start_date: "2022",
         brief: "IoT retail foot-traffic analysis system using AWS IoT Core for dynamic layout optimisation",
         skill: ["AWS IoT Core", "Python", "IoT"]
+    },
+    {
+        id: "5",
+        title: "RoutR",
+        start_date: "June 2025",
+        brief: "Full-stack route planning and trip tracking app with real-time SSE updates, drag-and-drop waypoints, and interactive map",
+        skill: ["Kotlin", "Spring Boot", "Next.js 15", "PostgreSQL"]
     },
 ]
 
@@ -168,5 +176,17 @@ export const projectDetails = [
              modelling, and integration with inventory management systems.`,
         slides: [],
         link: ""
+    },
+    {
+        id: "5",
+        title: "RoutR",
+        description: `RoutR is a full-stack route planning and trip tracking application built with a Kotlin Spring Boot 3.5 backend and Next.js 15 frontend.
+                      Users can create trips, add and reorder waypoints via drag-and-drop, and track progress in real time through Server-Sent Events (SSE).
+                      The backend follows a layered Controller → Facade → Service → Repository architecture with Clerk JWT authentication on every endpoint.
+                      An interactive map powered by DeckGL and MapLibre visualises waypoints and routes, with status-colour-coded markers for pending, arrived, and skipped stops.
+                      Built with TDD throughout — every layer has test coverage before implementation. Deployed on Railway (backend + PostgreSQL) and Vercel (frontend).`,
+        FI: `Future improvements include Mapbox road-following routes (currently straight-line fallback), push notifications for waypoint status changes, and team/multi-driver support for shared trip management.`,
+        slides: [],
+        link: "https://rout-r.vercel.app"
     },
 ]
