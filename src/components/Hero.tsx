@@ -97,7 +97,7 @@ const Hero = () => {
 
                         <div className="flex items-center gap-3">
                             <a
-                                href="https://linkedin.com/in/jaeyong-lee"
+                                href="https://www.linkedin.com/in/jaeyong-james/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-zinc-500 hover:text-indigo-400 transition-colors duration-200"

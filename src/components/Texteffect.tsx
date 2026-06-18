@@ -9,8 +9,6 @@ const Texteffect = () => {
         1800,
         'AI Automation Specialist',
         1800,
-        'Full Stack Developer',
-        1800,
         'Software Engineer',
         1800,
       ]}

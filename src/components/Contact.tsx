@@ -87,7 +87,7 @@ const Contact = () => {
 
                         <div className="flex items-center gap-4">
                             <a
-                                href="https://linkedin.com/in/jaeyong-lee"
+                                href="https://www.linkedin.com/in/jaeyong-james/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 px-4 py-2.5 bg-zinc-800 border border-zinc-700 rounded-lg text-zinc-400 hover:text-white hover:border-indigo-500/50 transition-all duration-200 text-sm"
