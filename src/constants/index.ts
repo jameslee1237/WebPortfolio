@@ -74,9 +74,16 @@ export const projects = [
     {
         id: "5",
         title: "RoutR",
-        start_date: "June 2025",
+        start_date: "June 2026",
         brief: "Full-stack route planning and trip tracking app with real-time SSE updates, drag-and-drop waypoints, and interactive map",
         skill: ["Kotlin", "Spring Boot", "Next.js 15", "PostgreSQL"]
+    },
+    {
+        id: "6",
+        title: "CineLog",
+        start_date: "July 2026",
+        brief: "Letterboxd-style film tracker built as a deep-dive into Core Web Vitals, RSC/streaming, and animations",
+        skill: ["Next.js 16", "React 19", "TypeScript", "Drizzle ORM"]
     },
 ]
 
@@ -188,5 +195,17 @@ export const projectDetails = [
         FI: `Future improvements include Mapbox road-following routes (currently straight-line fallback), push notifications for waypoint status changes, and team/multi-driver support for shared trip management.`,
         slides: [],
         link: "https://rout-r.vercel.app"
+    },
+    {
+        id: "6",
+        title: "CineLog",
+        description: `CineLog is a Letterboxd-style film tracker built with Next.js 16, React 19, and TypeScript, backed by Drizzle ORM on Neon PostgreSQL.
+                      Users can browse trending films via the TMDB API, search, view details, mark films as watched, and rate them, with Clerk handling authentication.
+                      Built as an intentional learning project — every phase targets a deep-dive area: RSC/Suspense streaming, Core Web Vitals (LCP/CLS/INP), or animations.
+                      Server-side blur placeholders, useOptimistic-driven watch/rating actions, and Framer Motion + View Transitions API power a fast, fluid UI,
+                      with a PerformanceObserver upgrading above-the-fold cards to full interactive motion right after LCP fires.`,
+        FI: `Future improvements include further mobile LCP optimisation, expanding parallel/intercepting routes to more flows, and richer social features like following and shared watchlists.`,
+        slides: [],
+        link: ""
     },
 ]
