@@ -44,6 +44,13 @@ export const TAB_DATA = [
 
 export const projects = [
     {
+        id: "7",
+        title: "Ahnsim-Scan",
+        start_date: "July 2026",
+        brief: "AI-powered phishing/smishing detector for Korean SMS & email — paste a message, get an instant risk verdict",
+        skill: ["Next.js 16", "Tailwind CSS", "Zod", "Google Gemini API"]
+    },
+    {
         id: "6",
         title: "CineLog",
         start_date: "July 2026",
@@ -126,6 +133,18 @@ export const experienceDetails = [
 ]
 
 export const projectDetails = [
+    {
+        id: "7",
+        title: "Ahnsim-Scan",
+        description: `Ahnsim-Scan (안심스캔) is an AI-powered phishing/smishing detector built for Korean SMS and email scams.
+                      Users paste a suspicious message and get an instant risk verdict — no login, nothing stored.
+                      Built on Next.js 16 with Route Handlers only (no separate backend), the analysis pipeline runs on the Google Gemini API (free tier),
+                      with Upstash Redis powering rate limiting and quota guards, and Cloudflare Turnstile providing bot verification.
+                      Zod handles request validation throughout, and every failure mode — missing env vars, quota exhaustion, invalid input — degrades to a sanitized error response rather than a raw crash.`,
+        FI: `Future improvements include migrating the detection engine to Claude Sonnet 5 as the service scales beyond the Gemini free tier, and expanding coverage to additional scam message formats.`,
+        slides: [],
+        link: "https://ahnsim-scan.vercel.app"
+    },
     {
         id: "6",
         title: "CineLog",
